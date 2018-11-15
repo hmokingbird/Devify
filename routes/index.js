@@ -48,10 +48,9 @@ const constructorMethod = app => {
       // use the access token to access the Spotify Web API
       request.get(options, async function(error, response, body) {
         console.log(body.display_name);
-        try {
-            await userInfo.addUser(body.display_name)
-        } catch (error) {
-            console.log(error)
+        let findUser = await userInfo.getUser(body.display_name) //checks if users unique spotify name already exists
+        if(!findUser){
+          await userInfo.addUser(body.display_name)  //if not adds user
         }
       });
 

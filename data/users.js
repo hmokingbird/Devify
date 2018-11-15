@@ -17,12 +17,14 @@ const addUser = async (userName) => {
 
 }
 
-const getUser = async (id)  => {
-    if(!id) throw "No id was provided"
+const getUser = async (name)  => {
+    if(!name) throw "No id was provided"
     const userCollection = await userData()
-    const findUser = await userCollection.findOne({_id : id})
+    const findUser = await userCollection.findOne({UserID : name})
 
-    if (findUser === null) throw 'No recipe was found with that given id';
+    if (findUser === null){
+        return false;
+    }
 
     return findUser;    
 }
