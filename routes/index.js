@@ -62,6 +62,7 @@ const constructorMethod = app => {
   }) 
   
   app.get("/logged", (req,res) => {
+      console.log(req.query.access_token) // access token in the url header to parse spotify data
       res.render("authentication/logged", {})
   })
 
