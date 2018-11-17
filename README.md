@@ -4,12 +4,12 @@
 
 -Built with Mongo, Node, and Express
 
-##How to use
+## How to use
 
--git clone the repository
+*git clone the repository
 
--npm install all the required dependencies
+*npm install all the required dependencies
 
--npm start
+*npm start
 
 That's it, you're done!
