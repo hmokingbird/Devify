@@ -1,4 +1,4 @@
-import { builtinModules } from "module";
+//import { builtinModules } from "module";
 
 const collections = require("../config/mongoCollections")
 const songs = collections.Songs
@@ -64,7 +64,7 @@ const updateSong = async (id, user, comment) => {
     }
 }
 
-export async function removeSong(id){
+const removeSong = async(id) => {
     try {
         const collection = await songs()
         collection.deleteOne({'_id': id})
