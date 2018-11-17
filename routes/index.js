@@ -4,9 +4,11 @@ const user= require("../data")
 const userInfo = user.userData
 
 const constructorMethod = app => {
+  
   let client_id = '0edee0583a08407fa148378bb88dcf68'; // Your client id
   let client_secret = '7807b53ecdff4da3a2325ce589b798d2'; // Your secret
   let redirect_uri = 'http://localhost:3000/callback'; // Your redirect uri
+  let authorized = false;
 
   app.get('/', (req, res) => {
     res.render("authentication/static", {})
@@ -23,6 +25,7 @@ const constructorMethod = app => {
   })
   
   app.get('/callback', function(req, res) {
+    authorized = true
     let code = req.query.code || null
     let authOptions = {
       url: 'https://accounts.spotify.com/api/token',
@@ -47,10 +50,15 @@ const constructorMethod = app => {
 
       // use the access token to access the Spotify Web API
       request.get(options, async function(error, response, body) {
-        console.log(body.display_name);
+        try{
+        console.log(/*body.display_name*/);
         let findUser = await userInfo.getUser(body.display_name) //checks if users unique spotify name already exists
         if(!findUser){
           await userInfo.addUser(body.display_name)  //if not adds user
+        }
+        }
+        catch (error){
+          throw error
         }
       });
 
@@ -61,10 +69,35 @@ const constructorMethod = app => {
   }) 
   
   app.get("/logged", (req,res) => {
+    let access_token = req.query.access_token
+    if (authorized === true){
+      const options = {                                             //this is your request from the spotify web api the get requests that are happening
+        url: 'https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=US',
+        headers: { 'Authorization': 'Bearer ' + access_token },
+        json: true
+      };
+
+      // use the access token to access the Spotify Web API
+      request.get(options, async function(error, response, body) {
+        try{
+        for (let i = 0; i< body.tracks.items.length; i++){
+        await console.log(
+        body.tracks.items[i].track.name
+        //body.tracks.items[i].whatever property you need
+        /*body.display_name*/);
+
+        //}
+      }
+    }
+        catch (error){
+          throw error
+        }
+      });
       console.log(req.query.access_token) // access token in the url header to parse spotify data
       res.render("authentication/logged", {})
+  }
+    else res.redirect('/login')
   })
-
 
 
 }
