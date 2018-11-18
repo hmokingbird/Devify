@@ -1,9 +1,9 @@
-body.openingPage { 
+body{ 
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("/public/img/wallpaper1.jpg");
     background-repeat: no-repeat;
-  }
+}
 
 img {
     padding-left: 10px;

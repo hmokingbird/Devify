@@ -11,9 +11,7 @@ const constructorMethod = app => {
   let authorized = false;
 
   app.get('/', (req, res) => {
-    res.render("authentication/static", {
-      renderClass: "openingPage"
-    })
+    res.render("authentication/static", {})
   })
 
   app.get('/login', function(req, res) {
