@@ -138,6 +138,10 @@ Logged in Page styling
     padding-left: 5px;
 }
 
+.menu ul li a:hover {
+    border-bottom: 5px solid green;
+}
+
 .menu ul { 
     margin: 0; 
     padding: 0;
@@ -145,7 +149,6 @@ Logged in Page styling
 .nav-bar img { 
     display: inline-block;
     padding-right: 7px;
-    color: red;
 }
 
 .middle-nav-bar{
@@ -163,4 +166,5 @@ Logged in Page styling
     color: white;
     overflow: none;
 }
+
 
