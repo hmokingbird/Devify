@@ -3,7 +3,13 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-img {
+/*
+==============================================
+Welcome Page Styling
+==============================================
+*/
+
+.header-container img {
     padding-left: 10px;
 }
 
@@ -75,4 +81,41 @@ img {
 @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: green; }
+}
+
+/*
+==============================================
+Logged in Page styling
+==============================================
+*/
+
+.logged-in-page {
+    font-size: 30px;
+}
+
+.header-logged-container {
+    padding-top: 15px;
+    background: #000000;
+    background: -webkit-linear-gradient(to right, #000000, #087508); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000, #087508)
+}
+
+.menu ul li {
+	display: inline-block;
+	margin: 0;
+	padding-bottom: 20px;
+    margin-left: 300px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 30px;
+    text-transform: uppercase;
+}
+
+.menu ul { 
+    margin: 0; 
+    padding: 0; 
+}
+.menu img { 
+    display: inline-block;
+    padding-left: 5px;
+    padding-top: -5px; 
 }
