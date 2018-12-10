@@ -137,6 +137,12 @@ u {
     padding-left: 200px;
 }
 
+iframe {
+    border-left: 0.08em solid #28a745;
+    border-right: 0.08em solid #28a745;
+    border-bottom: 0.08em solid #28a745;
+}
+
 
 
 
