@@ -123,6 +123,12 @@ Logged in Page styling
     color: white;
 }
 
+/*
+==============================================
+Playlist styling
+==============================================
+*/
+
 u {
     color: green;
 }
@@ -133,7 +139,8 @@ u {
 
 .margin-playlists {
     padding-top: 90px;
-    background-color: black;
+    background-image: url("/public/img/wallpaper11.jpg");
+    background-repeat: repeat;
     padding-left: 200px;
 }
 
