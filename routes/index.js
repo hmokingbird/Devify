@@ -99,6 +99,10 @@ const constructorMethod = app => {
     else res.redirect('/login')
   })
 
+  app.get("/UsTop50", async (req, res) => {
+      res.redirect("/login");
+  })
+
 
 }
 
