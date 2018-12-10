@@ -12,8 +12,13 @@
             },
         dataType: "json",
         success: function(body) {
+            console.log(body);
             let profilePicture = body.images[0].url;
+            let Name = body.display_name;
+            let followers = body.followers.total;
             $("#profileImage").attr("src", profilePicture);
+            $("#Name").append(Name);
+            $("#Followers").append(followers);
         },
         error: function() {
             console.log("Error retrieving spotify API");

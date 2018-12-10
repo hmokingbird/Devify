@@ -93,7 +93,7 @@ const constructorMethod = app => {
           throw error
         }
       });
-      console.log(req.query.access_token) // access token in the url header to parse spotify data
+     // console.log(req.query.access_token) // access token in the url header to parse spotify data
       res.render("authentication/logged", {})
   }
     else res.redirect('/login')
