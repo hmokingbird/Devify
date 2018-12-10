@@ -81,10 +81,10 @@ const constructorMethod = app => {
       request.get(options, async function(error, response, body) {
         try{
         for (let i = 0; i< body.tracks.items.length; i++){
-        await console.log(
-        body.tracks.items[i].track.name
-        //body.tracks.items[i].whatever property you need
-        /*body.display_name*/);
+        // await console.log(
+        // body.tracks.items[i].track.name
+        // //body.tracks.items[i].whatever property you need
+        // /*body.display_name*/);
 
         //}
       }
