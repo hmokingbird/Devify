@@ -143,6 +143,10 @@ iframe {
     border-bottom: 0.08em solid #28a745;
 }
 
+.card-header {
+    font-size: 75px;
+}
+
 
 
 
