@@ -154,6 +154,17 @@ iframe {
     font-size: 75px;
 }
 
+h5 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+h5:hover {
+    overflow:visible;
+    white-space: normal;
+}
+
 
 
 
