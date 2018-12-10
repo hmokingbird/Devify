@@ -100,7 +100,7 @@ const constructorMethod = app => {
   })
 
   app.get("/UsTop50", async (req, res) => {
-      res.redirect("/login");
+      res.render("authentication/playlists");
   })
 
 
