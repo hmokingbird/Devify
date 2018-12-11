@@ -127,15 +127,24 @@ Logged in Page styling
     color: white;
 }
 
+u {
+    color: #28a745;
+}
+
+#profileImage {
+    border:1px solid transparent; 
+}
+
+#profileImage:hover {
+    border-color: #28a745;
+    border-width: 5px;
+}
+
 /*
 ==============================================
 Playlist styling
 ==============================================
 */
-
-u {
-    color: green;
-}
 
 .top-buffer { 
     margin-top:40px; 
