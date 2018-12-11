@@ -28,10 +28,14 @@
 <div class="container margin-move">
     <div class="row">
         <div class="col-3">
-            <img id="profileImage" src="/public/img/no-profile-picture-icon.jpg" height="200" width="200" class="rounded-circle">
-            <p class="text-left" id="Name"><u>Name</u>: </p>
-            <p class="text-left" id="Followers"><u>Followers</u>:</p>
-            <p class="text-left" id="Followers"><u>Recently Played Song</u>:</p>
+            <img id="profileImage" src={{profilePicture}} height="200" width="200" class="rounded-circle">
+            {{#if Name}}
+                <p class="text-left" id="Name"><u>Name</u>:{{Name}}</p>
+            {{else}}
+                <p class="text-left" id="Name"><u>Name</u>:{{WebName}}</p>
+            {{/if}}
+            <p class="text-left" id="Followers"><u>Followers</u>:{{followers}}</p>
+            <p class="text-left" ><u>Recently Shared Song</u>:</p>
         </div>
         <div class="col-8">
            <p>testing here</p>

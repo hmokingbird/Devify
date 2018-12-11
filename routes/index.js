@@ -44,25 +44,25 @@ const constructorMethod = app => {
     request.post(authOptions, function(error, response, body) {
       let access_token = body.access_token
 
-      const options = {                                             //this is your request from the spotify web api the get requests that are happening
-        url: 'https://api.spotify.com/v1/me',
-        headers: { 'Authorization': 'Bearer ' + access_token },
-        json: true
-      };
+      // const options = {                                             //this is your request from the spotify web api the get requests that are happening
+      //   url: 'https://api.spotify.com/v1/me',
+      //   headers: { 'Authorization': 'Bearer ' + access_token },
+      //   json: true
+      // };
 
-      // use the access token to access the Spotify Web API
-      request.get(options, async function(error, response, body) {
-        try{
-        console.log(/*body.display_name*/);
-        let findUser = await userInfo.getUser(body.display_name) //checks if users unique spotify name already exists
-        if(!findUser){
-          await userInfo.addUser(body.display_name)  //if not adds user
-        }
-        }
-        catch (error){
-          throw error
-        }
-      });
+      // // use the access token to access the Spotify Web API
+      // request.get(options, async function(error, response, body) {
+      //   try{
+      //   console.log(/*body.display_name*/);
+      //   let findUser = await userInfo.getUser(body.display_name) //checks if users unique spotify name already exists
+      //   if(!findUser){
+      //     await userInfo.addUser(body.display_name)  //if not adds user
+      //   }
+      //   }
+      //   catch (error){
+      //     throw error
+      //   }
+      // });
 
       let uri = 'http://localhost:3000/logged'
       res.redirect(uri + '?access_token=' + access_token)
@@ -74,19 +74,29 @@ const constructorMethod = app => {
     let access_token = req.query.access_token
     const options = {
       method: 'GET',
-      uri: 'https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=US',
+      uri: 'https://api.spotify.com/v1/me',
       headers: { 'Authorization': 'Bearer ' + access_token },
       json: true,  
     }
       // use the access token to access the Spotify Web API
     let data = await rp(options)
-    console.log(data.tracks.items.length)
-          // //body.tracks.items[i].whatever property you need
+    console.log(data)
+    // //body.tracks.items[i].whatever property you need
           // /*body.display_name*/);
 
-          //}
+
+    let profilePicture = "/public/img/no-profile-picture-icon.jpg"     //if the image aray is zero that means there is no image and should default to this
+    if(data.images.length === 1){
+        profilePicture = data.images[0].url;
+     }
+  
      // console.log(req.query.access_token) // access token in the url header to parse spotify data
-      res.render("authentication/logged", {data})
+      res.render("authentication/logged", {
+        profilePicture: profilePicture,
+        Name: data.display_name,
+        followers: data.followers.total,
+        WebName: data.display_name,
+      })
   })
 
   app.get("/UsTop50", async (req, res) => {
