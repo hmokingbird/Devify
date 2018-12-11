@@ -113,12 +113,16 @@ Logged in Page styling
     padding-top: 90px;
 }
 
+.margin-down {
+    padding-top: 50px;
+}
+
 .dropdown-menu a {
     color: white;
 }
 
 
-.col-3 p {
+.col-lg-3 p {
     font-size: 20px;
     color: white;
 }

@@ -4,7 +4,7 @@
         let token = q.slice(14) 
         return token;
     }
-    let access_token = "BQD3vAohAHc3ikXbjUpRc3tFUtDDcykcvjqP-Wyy--HRjYcu6YshVHl1AtsgQGtCE4XiskxpnqBTgNqEKKNT-P6qHQJgyLlE55ttQ7JFH-s3cAlDoG1Nv33LNuG1qtZ6LunrTCllnzoNVa1uelkTOjdNEwIGak4BW-jvXN0"  //placeholder access token
+    let access_token = "BQA1Gtsd-jvNXpwn1GWILTwIEcO0TaXib4UqsTNxajqioyILTQ2ox8bFDFGeANsbdToMFOQEY75WoJXTazJ0hbWwLzY0d94X_rDUZO03E3W7qQzV20IH_nWdBMh_r0Yczi3QimmXkcbqGb1noFh6XUkFHLOBYj5KwAcHaUY"  //placeholder access token
     $.ajax({
         url: 'https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=US',
         headers: {
