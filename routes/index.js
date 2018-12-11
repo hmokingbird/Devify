@@ -1,6 +1,8 @@
 let request = require('request');
 let querystring = require('querystring');
+let rp = require('request-promise');
 const user= require("../data")
+
 const userInfo = user.userData
 
 const constructorMethod = app => {
@@ -68,35 +70,23 @@ const constructorMethod = app => {
     })
   }) 
   
-  app.get("/logged", (req,res) => {
+  app.get("/logged",async function (req,res) {
     let access_token = req.query.access_token
-    if (authorized === true){
-      const options = {                                             //this is your request from the spotify web api the get requests that are happening
-        url: 'https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=US',
-        headers: { 'Authorization': 'Bearer ' + access_token },
-        json: true
-      };
-
-      // use the access token to access the Spotify Web API
-      request.get(options, async function(error, response, body) {
-        try{
-        for (let i = 0; i< body.tracks.items.length; i++){
-        // await console.log(
-        // body.tracks.items[i].track.name
-        // //body.tracks.items[i].whatever property you need
-        // /*body.display_name*/);
-
-        //}
-      }
+    const options = {
+      method: 'GET',
+      uri: 'https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF?market=US',
+      headers: { 'Authorization': 'Bearer ' + access_token },
+      json: true,  
     }
-        catch (error){
-          throw error
-        }
-      });
+      // use the access token to access the Spotify Web API
+    let data = await rp(options)
+    console.log(data.tracks.items.length)
+          // //body.tracks.items[i].whatever property you need
+          // /*body.display_name*/);
+
+          //}
      // console.log(req.query.access_token) // access token in the url header to parse spotify data
-      res.render("authentication/logged", {})
-  }
-    else res.redirect('/login')
+      res.render("authentication/logged", {data})
   })
 
   app.get("/UsTop50", async (req, res) => {
