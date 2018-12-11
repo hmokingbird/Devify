@@ -144,6 +144,10 @@ u {
     background-color: #000000;
 }
 
+.user-comment .top-padding {
+    padding-top: 10px;
+}
+
 /*
 ==============================================
 Playlist styling
